@@ -1,0 +1,1 @@
+import {NextResponse} from 'next/server';export async function GET(){try{const r=await fetch('https://api.aladhan.com/v1/timingsByCity?city=Duri&country=Indonesia&method=20',{next:{revalidate:1800}});const j=await r.json();return NextResponse.json(j.data||{})}catch{return NextResponse.json({timings:null},{status:200})}}
